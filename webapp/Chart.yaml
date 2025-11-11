@@ -1,0 +1,18 @@
+apiVersion: v2
+name: webapp
+description: A simple web application
+type: application
+version: 0.2.0
+appVersion: "2.0.0"
+maintainers:
+  - name: Tom Cool
+    email: tom.cool@pxl.be
+keywords:
+  - web
+  - application
+
+dependencies:
+  - name: nats
+    version: "2.12.1"
+    repository: "https://nats-io.github.io/k8s/helm/charts/"
+    condition: nats.enabled

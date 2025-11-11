@@ -1,0 +1,5 @@
+environment: production
+replicaCount: 3
+labels:
+  team: backend
+  cost-center: engineering

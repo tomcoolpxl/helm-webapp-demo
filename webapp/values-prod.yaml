@@ -1,0 +1,18 @@
+environment: production
+replicaCount: 3
+image:
+  tag: "1.27-alpine"
+service:
+  type: LoadBalancer
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70

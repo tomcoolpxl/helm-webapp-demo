@@ -1,0 +1,74 @@
+# General metadata
+environment: development
+appName: webapp
+
+labels:
+  team: platform
+  project: demo
+
+# Basic configuration
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.27-alpine"
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+autoscaling:
+  enabled: false
+
+configMap:
+  data:
+    index.html: |
+      <html>
+      <head><title>Hello Helm</title></head>
+      <body>
+        <h1>Hello from Helm!</h1>
+        <p>Version: 1.0.0</p>
+      </body>
+      </html>
+
+# NATS dependency configuration
+#
+# This feeds into the official nats/nats Helm chart as a subchart.
+nats:
+  enabled: true
+
+  # You can keep most defaults from the NATS chart.
+  # Minimal tweak: a single-replica server, no auth, small footprint.
+  nats:
+    image:
+      pullPolicy: IfNotPresent
+
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+  # Optional: disable the nats-box helper if you want fewer pods.
+  box:
+    enabled: false
+# Add backup configuration
+backup:
+  enabled: true

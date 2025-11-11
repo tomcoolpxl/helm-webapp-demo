@@ -1,0 +1,11 @@
+environment: staging
+replicaCount: 2
+image:
+  tag: "1.27-alpine"
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
