@@ -7,6 +7,7 @@ on:
     paths:
       - "webapp/**"
       - ".github/workflows/helm-pages.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -30,7 +31,7 @@ jobs:
           mkdir -p .deploy
           helm dependency update webapp
           helm package webapp -d .deploy
-          helm repo index .deploy --url https://tomcoolpxl.github.io/helm-webapp-demo
+          helm repo index .deploy --url https://YOUR-USER.github.io/helm-webapp-demo
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
