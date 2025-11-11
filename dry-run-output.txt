@@ -1,0 +1,684 @@
+install.go:225: 2025-11-11 09:15:45.1110034 +0100 CET m=+0.069240401 [debug] Original chart version: ""
+install.go:242: 2025-11-11 09:15:48.7645637 +0100 CET m=+3.722800701 [debug] CHART PATH: C:\Users\thraa\AppData\Local\Temp\helm\repository\nginx-22.3.2.tgz
+
+NAME: my-nginx
+LAST DEPLOYED: Tue Nov 11 09:15:48 2025
+NAMESPACE: lab-helm
+STATUS: pending-install
+REVISION: 1
+TEST SUITE: None
+USER-SUPPLIED VALUES:
+{}
+
+COMPUTED VALUES:
+affinity: {}
+args: []
+automountServiceAccountToken: false
+autoscaling:
+  enabled: false
+  maxReplicas: ""
+  minReplicas: ""
+  targetCPU: ""
+  targetMemory: ""
+backendTLSPolicy:
+  annotations: {}
+  enabled: false
+  hostname: ""
+  labels: {}
+  subjectAltNames: []
+cloneStaticSiteFromGit:
+  branch: ""
+  enabled: false
+  extraEnvVars: []
+  extraEnvVarsSecret: ""
+  extraVolumeMounts: []
+  gitClone:
+    args: []
+    command: []
+  gitSync:
+    args: []
+    command: []
+    fips:
+      openssl: ""
+    resources: {}
+    resourcesPreset: nano
+  image:
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: registry-1.docker.io
+    repository: bitnami/git
+    tag: latest
+  interval: 60
+  repository: ""
+clusterDomain: cluster.local
+command: []
+common:
+  exampleValue: common-chart
+  global:
+    compatibility:
+      openshift:
+        adaptSecurityContext: auto
+    defaultFips: restricted
+    imagePullSecrets: []
+    imageRegistry: ""
+    security:
+      allowInsecureImages: false
+commonAnnotations: {}
+commonLabels: {}
+containerPorts:
+  http: 8080
+  https: 8443
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  enabled: true
+  privileged: false
+  readOnlyRootFilesystem: true
+  runAsGroup: 1001
+  runAsNonRoot: true
+  runAsUser: 1001
+  seLinuxOptions: {}
+  seccompProfile:
+    type: RuntimeDefault
+contextIncludes:
+  events: ""
+  http: ""
+  main: ""
+customLivenessProbe: {}
+customReadinessProbe: {}
+customStartupProbe: {}
+diagnosticMode:
+  args:
+  - infinity
+  command:
+  - sleep
+  enabled: false
+dnsConfig: {}
+dnsPolicy: ""
+enableDefaultInitContainers: true
+existingContextEventsConfigmaps: []
+existingContextHttpConfigmaps: []
+existingContextMainConfigmaps: []
+existingServerBlockConfigmap: ""
+existingStreamServerBlockConfigmap: ""
+extraContainerPorts: []
+extraDeploy: []
+extraEnvVars: []
+extraEnvVarsCM: ""
+extraEnvVarsSecret: ""
+extraVolumeMounts: []
+extraVolumes: []
+fips:
+  openssl: ""
+fullnameOverride: ""
+global:
+  compatibility:
+    openshift:
+      adaptSecurityContext: auto
+  defaultFips: restricted
+  imagePullSecrets: []
+  imageRegistry: ""
+  security:
+    allowInsecureImages: false
+healthIngress:
+  annotations: {}
+  enabled: false
+  extraHosts: []
+  extraPaths: []
+  extraRules: []
+  extraTls: []
+  hostname: example.local
+  ingressClassName: ""
+  path: /
+  pathType: ImplementationSpecific
+  secrets: []
+  selfSigned: false
+  tls: false
+hostAliases: []
+hostIPC: false
+hostNetwork: false
+httpRoute:
+  annotations: {}
+  enabled: false
+  extraRules: []
+  filters: []
+  hostnames:
+  - nginx.local
+  labels: {}
+  matches:
+  - path:
+      type: PathPrefix
+      value: /
+  parentRefs: []
+image:
+  debug: false
+  digest: ""
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+  registry: registry-1.docker.io
+  repository: bitnami/nginx
+  tag: latest
+ingress:
+  annotations: {}
+  apiVersion: ""
+  enabled: false
+  extraHosts: []
+  extraPaths: []
+  extraRules: []
+  extraTls: []
+  hostname: nginx.local
+  ingressClassName: ""
+  path: /
+  pathType: ImplementationSpecific
+  secrets: []
+  selfSigned: false
+  tls: false
+  tlsWwwPrefix: false
+initContainers: []
+kubeVersion: ""
+lifecycleHooks: {}
+livenessProbe:
+  enabled: true
+  failureThreshold: 6
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+metrics:
+  containerPorts:
+    metrics: 9113
+  customLivenessProbe: {}
+  customReadinessProbe: {}
+  customStartupProbe: {}
+  enabled: false
+  extraArgs: []
+  fips:
+    golang: restricted
+    openssl: ""
+  image:
+    digest: ""
+    pullPolicy: IfNotPresent
+    pullSecrets: []
+    registry: registry-1.docker.io
+    repository: bitnami/nginx-exporter
+    tag: latest
+  livenessProbe:
+    enabled: true
+    failureThreshold: 2
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 5
+  podAnnotations: {}
+  port: ""
+  prometheusRule:
+    additionalLabels: {}
+    enabled: false
+    namespace: ""
+    rules: []
+  readinessProbe:
+    enabled: true
+    failureThreshold: 2
+    initialDelaySeconds: 5
+    periodSeconds: 30
+    successThreshold: 1
+    timeoutSeconds: 3
+  resources: {}
+  resourcesPreset: nano
+  securityContext:
+    enabled: false
+    runAsUser: 1001
+    seLinuxOptions: {}
+  service:
+    annotations:
+      prometheus.io/port: '{{ .Values.metrics.service.port }}'
+      prometheus.io/scrape: "true"
+    port: 9113
+  serviceMonitor:
+    enabled: false
+    honorLabels: false
+    interval: ""
+    jobLabel: ""
+    labels: {}
+    metricRelabelings: []
+    namespace: ""
+    relabelings: []
+    scrapeTimeout: ""
+    selector: {}
+    tlsConfig: {}
+  startupProbe:
+    enabled: false
+    failureThreshold: 10
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+    timeoutSeconds: 3
+nameOverride: ""
+namespaceOverride: ""
+networkPolicy:
+  allowExternal: true
+  allowExternalEgress: true
+  enabled: true
+  extraEgress: []
+  extraIngress: []
+  ingressNSMatchLabels: {}
+  ingressNSPodMatchLabels: {}
+nodeAffinityPreset:
+  key: ""
+  type: ""
+  values: []
+nodeSelector: {}
+pdb:
+  create: true
+  maxUnavailable: ""
+  minAvailable: ""
+podAffinityPreset: ""
+podAnnotations: {}
+podAntiAffinityPreset: soft
+podLabels: {}
+podSecurityContext:
+  enabled: true
+  fsGroup: 1001
+  fsGroupChangePolicy: Always
+  supplementalGroups: []
+  sysctls: []
+priorityClassName: ""
+readinessProbe:
+  enabled: true
+  failureThreshold: 3
+  initialDelaySeconds: 5
+  path: /
+  periodSeconds: 5
+  successThreshold: 1
+  timeoutSeconds: 3
+replicaCount: 1
+resources: {}
+resourcesPreset: nano
+revisionHistoryLimit: 10
+schedulerName: ""
+serverBlock: ""
+service:
+  annotations: {}
+  clusterIP: ""
+  externalTrafficPolicy: Cluster
+  extraPorts: []
+  loadBalancerClass: ""
+  loadBalancerIP: ""
+  loadBalancerSourceRanges: []
+  nodePorts:
+    http: ""
+    https: ""
+  ports:
+    http: 80
+    https: 443
+  sessionAffinity: None
+  sessionAffinityConfig: {}
+  targetPort:
+    http: http
+    https: https
+  type: LoadBalancer
+serviceAccount:
+  annotations: {}
+  automountServiceAccountToken: false
+  create: true
+  name: ""
+sidecarSingleProcessNamespace: false
+sidecars: []
+startupProbe:
+  enabled: false
+  failureThreshold: 6
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+staticSiteConfigmap: ""
+staticSitePVC: ""
+streamServerBlock: ""
+terminationGracePeriodSeconds: ""
+tls:
+  autoGenerated: true
+  ca: ""
+  cert: ""
+  certCAFilename: ca.crt
+  certFilename: tls.crt
+  certKeyFilename: tls.key
+  enabled: true
+  existingSecret: ""
+  key: ""
+tolerations: []
+topologySpreadConstraints: []
+updateStrategy:
+  rollingUpdate: {}
+  type: RollingUpdate
+
+HOOKS:
+MANIFEST:
+---
+# Source: nginx/templates/networkpolicy.yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: my-nginx
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: my-nginx
+      app.kubernetes.io/name: nginx
+  policyTypes:
+    - Ingress
+    - Egress
+  egress:
+    - {}
+  ingress:
+    - ports:
+        - port: 8080
+        - port: 8443
+---
+# Source: nginx/templates/pdb.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: my-nginx
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+spec:
+  maxUnavailable: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: my-nginx
+      app.kubernetes.io/name: nginx
+---
+# Source: nginx/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-nginx
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+automountServiceAccountToken: false
+---
+# Source: nginx/templates/tls-secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-nginx-tls
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+type: kubernetes.io/tls
+data:
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURkekNDQWwrZ0F3SUJBZ0lSQUtmYkdsT0R3N1BMVkxZVnVTTGVWUUV3RFFZSktvWklodmNOQVFFTEJRQXcKRXpFUk1BOEdBMVVFQXhNSWJtZHBibmd0WTJFd0hoY05NalV4TVRFeE1EZ3hOVFE1V2hjTk1qWXhNVEV4TURneApOVFE1V2pBVE1SRXdEd1lEVlFRREV3aHRlUzF1WjJsdWVEQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQCkFEQ0NBUW9DZ2dFQkFNT09jSHVmbS9rSU1iWUttejVJSnhsa0F5NVVleG5qaW0wdDBYMVBnQjNDdVM5REhaRUMKNFdoWEtwS1FIQWRBZWcrMEFrUndpcGFXeEc4WmQ0UVE5Rnc4USthaWRCTUlJd0I1bjczc1YrenR2MFpITnF1RQpDYjVJM1EvOEpKa1ludDFsUE5hbjVsS2VOMkN3dUdJOHpCbGdkVjRxWm1iazlhSXlETEpLNHp6bk1Gd2lyaHZJCnF3cGQwcThWNU5DV3VDMm44MDJKUmFWeFFHNFNSNEduc2Y3cFE4Qk04THJrVmtZeXUyTFVsc2h4MXFUOFdHOUsKSVN0ZDhPK0IwYWlkV0tEZzJpTzByS2VXbWlaYmRnUEhRVEJvNHo0YTJKMDVsWlg4UnE5Wmt5THY1KzErSTVHeAp4UjlqbGlia3Z1NFZxYWNGMk51RXZIVE54aytmUjZCZmllRUNBd0VBQWFPQnhUQ0J3akFPQmdOVkhROEJBZjhFCkJBTUNCYUF3SFFZRFZSMGxCQll3RkFZSUt3WUJCUVVIQXdFR0NDc0dBUVVGQndNQ01Bd0dBMVVkRXdFQi93UUMKTUFBd0h3WURWUjBqQkJnd0ZvQVVYNTZOdndNTjJ5b0xKUVM2Q0Zldko0Rkt4NUV3WWdZRFZSMFJCRnN3V1lJSQpiWGt0Ym1kcGJuaUNFVzE1TFc1bmFXNTRMbXhoWWkxb1pXeHRnaFZ0ZVMxdVoybHVlQzVzWVdJdGFHVnNiUzV6CmRtT0NJMjE1TFc1bmFXNTRMbXhoWWkxb1pXeHRMbk4yWXk1amJIVnpkR1Z5TG14dlkyRnNNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFCN1VUZFdQYW5PbUJHVHY0R2szaDVNSzl0NUMzRHVLTEY5NVN0b3dvNUVsOTFjSllmWgpXMU9YeDNHUGlHUjBOcnArUzR5QlRsckphc0phMHlvVUdpVEM1TEQwVnJvUlJzSE83SDAxdTJKKzQ2ZUtvR09yCkdVQkVySC9jS0dCNUhQbFVsSkxqNU9WWlpSV3BLbjlxUVR5aERsOUhiWk1nSmNyTWh4Z2lacm10R1kyZVJobFUKcDEyNFpNcmpOaEF2Rk1yWStFVFBrcVRWbmtVa3hsMlJENFhJeDlpTTJyYjQydlBHaitBaWI2ZzZ4N2pnNGJGWApoNk1hUXVJNS91cnpRR09PVEpmUnRxbXVjMGhnUFVVb1BXSHZRVnFHRFlaRGxWdURMOHFXb0QvbHNYRDg3djZ2Ck1rdFkzNmpjcm9XK1lVQXFqNlAzV2UxNXorbnhNNENOaU8wbgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBdzQ1d2U1K2IrUWd4dGdxYlBrZ25HV1FETGxSN0dlT0tiUzNSZlUrQUhjSzVMME1kCmtRTGhhRmNxa3BBY0IwQjZEN1FDUkhDS2xwYkVieGwzaEJEMFhEeEQ1cUowRXdnakFIbWZ2ZXhYN08yL1JrYzIKcTRRSnZramREL3drbVJpZTNXVTgxcWZtVXA0M1lMQzRZanpNR1dCMVhpcG1adVQxb2pJTXNrcmpQT2N3WENLdQpHOGlyQ2wzU3J4WGswSmE0TGFmelRZbEZwWEZBYmhKSGdhZXgvdWxEd0V6d3V1UldSaks3WXRTV3lISFdwUHhZCmIwb2hLMTN3NzRIUnFKMVlvT0RhSTdTc3A1YWFKbHQyQThkQk1HampQaHJZblRtVmxmeEdyMW1USXUvbjdYNGoKa2JIRkgyT1dKdVMrN2hXcHB3WFkyNFM4ZE0zR1Q1OUhvRitKNFFJREFRQUJBb0lCQUJYV2xrdk5RSWNkbWMrUgpKNmV3NUdJNjFQckdNYjVydHFNSDl0a0k3bThQQzh4eUJrbm5YeHl6MUphV3cvVXdzaHVHMHFuL1FoQWNZM0MwCnUxcTRPZnhZT1RlaG4xZHd2OWZuRW51M0pQL1p4NmtsZldseCtWU1NvU2ZqMUlKMFNXbHRTM245T0s5ZWs4M3MKYmtBcU4wWURpNWZVZHYyNVJvK3lYeVh2VHY1c20yZk9iL2JKakVoVDdKL0xQdUpGZ05VM2xoeWdnUnExSnVaVgpoYnF3NUdOOGZzNHUxNGFubUdNelFtVmNzeUtnOWlqWmtxYVpQSmhEenlIN1Z2amhBdXZrZFloQ1VCanl2ZXZEClhIZktnSitWOGFhVlF1ZzMyYXNxWWxteEpYaXliMnVDKy9ScyswU1c3akl3b2tIZlFnT1VoNkIreFAxWlRNT3UKRnViN2NuRUNnWUVBOVp0NHlLTi9TYUE5aC96bmhyOW8vUlVYajNUYmxUQjJTQnRlVkVVbDdCZmEyWmU4L09uTAppKzV2SmE5b21TaVQ0MFc4N0JVTVQ3KzRyeDVzcVc3bTQxZDkraTNqc0xzMTdmY0xvS0c1SmZZYWkxTHdpNlkxCjYyYkgvZVFBU2UvNGVQQVpvaEEwcjQzaFhEYWZPMkpKTmFQYmJhTlBDK1J1eGQydzFSRy83VHNDZ1lFQXk5VEwKTkZiNjkzcWhCeXhKTHpCUjNFMEVsekFzckRHYUM0NWl2L2tSbzV3Zm96SjhRZnBEVDlHQTRkY1Y0Tk5DYmZmegp5dTRMSm1Qdm5zeGhBVVpDVmE0OXAyaXhaYTNnTFFHemNoNXJGdWtjaVdKRm9CM2NlQWtaT2oySnVlZzFPY3paCjBpb3gzZCtaS3gxcGdOaS9Cbk8xa2VUVVFZOUQxS25rTUo1OTQ1TUNnWUVBd1dST1V3NEthRnI0bUYrWG53NlIKQ05iVzJtclZqRC9Bb3o2SnBDbGVsdXloc3J3OFg1bG9ZU0s1K2g2SWFqRDlZZlBEc3RGUUJHdWViS1cwUWlYRgpRRFhnU0dKaDZ3TStqOFg3TGR5cUFTNHI4SkM2UC92OGNRTlpicDFkYk5xNzk5NTNFSmxhSXZIQkJlOHNxb0hWCnk1cmVhUkl5WjliVE1wSkJiMFN1cjRrQ2dZQlFTR2NsSFdGS0dvWFVRbkFzNHZaTE5CYXJ5ZkMrZmVienlFaEMKM3NKQTA5eHVOaE5WRlZKdjNNL0xwQ0RjNWJqVGdZY0hsY3pVZVNaSFFLNndodERYMklJMkx2azRXRXprelRlMQpxaDk1N2FVc3c0VXk5TEFDbzJySlVyV3RnTFYrSjU1ZnRmamdNQkt2TmExNWIyV0dFQXNqQktOSmt6a2ZTUzgwCnF5aGdld0tCZ0FTdXBST2NoZHBnS1R6SUFKSWh2Q1ppaTNGRy96QWl2Q0RIRTZ4QjdPRElLbE5xcmYzNVJWaTUKSEpjRVA2Yk5oMlMxLzVrQVNyVmkrRVZxa2gvYzBaYkdOdVlWbFd2NTZKMXpzeUhjWDNFVXIzcUc3elY4Z3BLYgpTL0tHeVNNa0h2Z1d1dTU5eXpFWVdHaFlQZkI0N253Q3pHSmJ6TFJad3hObkdsL0QxVzFKCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFakNDQWZxZ0F3SUJBZ0lSQU5XR0dTZ1hsemtyNTdqUG1LeXd5VHN3RFFZSktvWklodmNOQVFFTEJRQXcKRXpFUk1BOEdBMVVFQXhNSWJtZHBibmd0WTJFd0hoY05NalV4TVRFeE1EZ3hOVFE1V2hjTk1qWXhNVEV4TURneApOVFE1V2pBVE1SRXdEd1lEVlFRREV3aHVaMmx1ZUMxallUQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQCkFEQ0NBUW9DZ2dFQkFLNWNrZ3kwb3NPOEVkdjRyd1hqSmZWVWExMzJhTDMxTWJrdWZIWXpyQTlXRzJXQkFmUDAKdzlIcGNPNW11VisxeFB5K3VQT1NzQyszZTRkZGUzcmV3ZXVGS3NaLzY2VnpUZ2FUZnhtL09EeTRETm0xOEJJVApKRlJRbjZzNEIzamg2czhpN0FtMlJQa0UyQ1Y4Y0g3bGViOXhya2UydG1Ib2FNWnR1UXVKM2xlMms1UnZ5aGRqCktpYUh1SDg5OVVyWi9NOC81VTFueVB6VE90VGJpb1NZQWUrNWQ3d1liL0Y2MmtjUWRMMFY5c3lDWGd4b0RZMnIKd28vSXY0eVJUdFF6K3FIOHhhY0FGMzhZUUZtM05EZ094cnBTQVlDT0hJeHBqSjJTVmhhUlIzRU1MOW1DSWtNTgpxZW4yS0tKN0RYN0FjY2VtSWJnSnk4VS9BMlJKYmFxb1g1MENBd0VBQWFOaE1GOHdEZ1lEVlIwUEFRSC9CQVFECkFnS2tNQjBHQTFVZEpRUVdNQlFHQ0NzR0FRVUZCd01CQmdnckJnRUZCUWNEQWpBUEJnTlZIUk1CQWY4RUJUQUQKQVFIL01CMEdBMVVkRGdRV0JCUmZubzIvQXczYktnc2xCTG9JVjY4bmdVckhrVEFOQmdrcWhraUc5dzBCQVFzRgpBQU9DQVFFQVZxNFZhc3FNd3VSQTA4Ym4xL1ZERHQxT3pKSEpKVDgvSmFpNmtENWh2YmgxUDM0b1JUT0JEOHMzCm94bS81ZjBQMmlOZ0xOa0ZDTi9VWTZMMXZhRm1TcU1SS2ZQZU9UWDJRYTlmWUVzWXpTYkVvZDQ3dk4yOU5QQmoKZzVoRjFNT0x0akZZTjEvR2x4YlNXTGlIRXplRUgwTmxkNm5zcGVRcFRDcGVDYVlUaXBHRHN0Qk8wQzVhS0xMZQpGOWUyQ1pQSGtEZ3Y2bjVoMHFzQmYyZjdzUWxLU2dBdnF4cXR4ZFJtcWxKazUxZjViZm1tZFZwdWZ4WUNCS1ZmCkxlSE1MN2ZabHhNNkZ5WG0xRkZZd2RqVjNVa1NobjBOVEtJNmhQL0ZJQUtscXBjRkdudEZJamxNa3F1eWttQUUKbXJScFdDb0FWd0pyQmRwcisvcnF5QnVyQUdPU2J3PT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+---
+# Source: nginx/templates/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+  annotations:
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: "Cluster"
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: https
+  selector:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/name: nginx
+---
+# Source: nginx/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+  namespace: "lab-helm"
+  labels:
+    app.kubernetes.io/instance: my-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx
+    app.kubernetes.io/version: 1.29.3
+    helm.sh/chart: nginx-22.3.2
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  strategy:
+    rollingUpdate: {}
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: my-nginx
+      app.kubernetes.io/name: nginx
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: my-nginx
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/name: nginx
+        app.kubernetes.io/version: 1.29.3
+        helm.sh/chart: nginx-22.3.2
+      annotations:
+    spec:
+      
+      shareProcessNamespace: false
+      serviceAccountName: my-nginx
+      automountServiceAccountToken: false
+      affinity:
+        podAffinity:
+          
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app.kubernetes.io/instance: my-nginx
+                    app.kubernetes.io/name: nginx
+                topologyKey: kubernetes.io/hostname
+              weight: 1
+        nodeAffinity:
+          
+      hostNetwork: false
+      hostIPC: false
+      securityContext:
+        fsGroup: 1001
+        fsGroupChangePolicy: Always
+        supplementalGroups: []
+        sysctls: []
+      initContainers:
+        - name: preserve-logs-symlinks
+          image: registry-1.docker.io/bitnami/nginx:latest
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsGroup: 1001
+            runAsNonRoot: true
+            runAsUser: 1001
+            seLinuxOptions: {}
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            limits:
+              cpu: 150m
+              ephemeral-storage: 2Gi
+              memory: 192Mi
+            requests:
+              cpu: 100m
+              ephemeral-storage: 50Mi
+              memory: 128Mi
+          env:
+            - name: OPENSSL_FIPS
+              value: "yes"
+          command:
+            - /bin/bash
+          args:
+            - -ec
+            - |
+              #!/bin/bash
+              . /opt/bitnami/scripts/libfs.sh
+              # We copy the logs folder because it has symlinks to stdout and stderr
+              if ! is_dir_empty /opt/bitnami/nginx/logs; then
+                cp -r /opt/bitnami/nginx/logs /emptydir/app-logs-dir
+              fi
+          volumeMounts:
+            - name: empty-dir
+              mountPath: /emptydir
+      containers:
+        - name: nginx
+          image: registry-1.docker.io/bitnami/nginx:latest
+          imagePullPolicy: "IfNotPresent"
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+              - ALL
+            privileged: false
+            readOnlyRootFilesystem: true
+            runAsGroup: 1001
+            runAsNonRoot: true
+            runAsUser: 1001
+            seLinuxOptions: {}
+            seccompProfile:
+              type: RuntimeDefault
+          env:
+            - name: BITNAMI_DEBUG
+              value: "false"
+            - name: NGINX_HTTP_PORT_NUMBER
+              value: "8080"
+            - name: OPENSSL_FIPS
+              value: "yes"
+            - name: NGINX_HTTPS_PORT_NUMBER
+              value: "8443"
+          envFrom:
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: https
+              containerPort: 8443
+          livenessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+            tcpSocket:
+              port: http
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+            httpGet:
+              path: /
+              port: http
+          resources:
+            limits:
+              cpu: 150m
+              ephemeral-storage: 2Gi
+              memory: 192Mi
+            requests:
+              cpu: 100m
+              ephemeral-storage: 50Mi
+              memory: 128Mi
+          volumeMounts:
+            - name: empty-dir
+              mountPath: /tmp
+              subPath: tmp-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/conf
+              subPath: app-conf-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/logs
+              subPath: app-logs-dir
+            - name: empty-dir
+              mountPath: /opt/bitnami/nginx/tmp
+              subPath: app-tmp-dir
+            - name: certificate
+              mountPath: /certs
+      volumes:
+        - name: empty-dir
+          emptyDir: {}
+        - name: certificate
+          secret:
+            secretName: my-nginx-tls
+            items:
+              - key: tls.crt
+                path: tls.crt
+              - key: tls.key
+                path: tls.key
+
+NOTES:
+CHART NAME: nginx
+CHART VERSION: 22.3.2
+APP VERSION: 1.29.3
+
+⚠ WARNING: Since August 28th, 2025, only a limited subset of images/charts are available for free.
+    Subscribe to Bitnami Secure Images to receive continued support and security updates.
+    More info at https://bitnami.com and https://github.com/bitnami/containers/issues/83267
+
+** Please be patient while the chart is being deployed **
+NGINX can be accessed through the following DNS name from within your cluster:
+
+    my-nginx.lab-helm.svc.cluster.local (port 80)
+
+To access NGINX from outside the cluster, follow the steps below:
+
+1. Get the NGINX URL by running these commands:
+
+  NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+        Watch the status with: 'kubectl get svc --namespace lab-helm -w my-nginx'
+
+    export SERVICE_PORT=$(kubectl get --namespace lab-helm -o jsonpath="{.spec.ports[0].port}" services my-nginx)
+    export SERVICE_IP=$(kubectl get svc --namespace lab-helm my-nginx -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+    echo "http://${SERVICE_IP}:${SERVICE_PORT}"
+WARNING: Rolling tag detected (bitnami/nginx:latest), please note that it is strongly recommended to avoid using rolling tags in a production environment.
++info https://techdocs.broadcom.com/us/en/vmware-tanzu/application-catalog/tanzu-application-catalog/services/tac-doc/apps-tutorials-understand-rolling-tags-containers-index.html
+WARNING: Rolling tag detected (bitnami/git:latest), please note that it is strongly recommended to avoid using rolling tags in a production environment.
++info https://techdocs.broadcom.com/us/en/vmware-tanzu/application-catalog/tanzu-application-catalog/services/tac-doc/apps-tutorials-understand-rolling-tags-containers-index.html
+WARNING: Rolling tag detected (bitnami/nginx-exporter:latest), please note that it is strongly recommended to avoid using rolling tags in a production environment.
++info https://techdocs.broadcom.com/us/en/vmware-tanzu/application-catalog/tanzu-application-catalog/services/tac-doc/apps-tutorials-understand-rolling-tags-containers-index.html
+
+WARNING: There are "resources" sections in the chart not set. Using "resourcesPreset" is not recommended for production. For production installations, please set the following values according to your workload needs:
+  - cloneStaticSiteFromGit.gitSync.resources
+  - resources
++info https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
